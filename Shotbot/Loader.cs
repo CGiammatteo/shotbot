@@ -4,6 +4,7 @@ using System.IO;
 using System.IO.Compression;
 using System.Net;
 using System.Windows.Forms;
+using System.Web;
 
 namespace Shotbot
 {
@@ -12,10 +13,47 @@ namespace Shotbot
         public Loader()
         {
             InitializeComponent();
+           
         }
 
-        private void Loader_Load(object sender, EventArgs e)
+        
+        
+        private async void Loader_Load(object sender, EventArgs e)
         {
+            // File Check
+            if (File.Exists("Shotbot_Old.exe"))
+            {
+                // Found
+                File.Delete("Shotbot_Old.exe");
+            }else if (AppDomain.CurrentDomain.FriendlyName == "Shotbot_Old.exe")
+            {
+                Process.Start("Shotbot.exe");
+                Application.Exit();
+            }
+
+            // Update Check
+            WebClient client = new WebClient();
+           
+            string Version = "1.0.0.1";
+            string OnlineVersion = client.DownloadString("https://pastebin.com/raw/GTyapBah");
+
+            if (Version == OnlineVersion)
+            {
+                // Good
+            }
+            else
+            {
+                // Let them know
+                MessageBox.Show($"Update Found! {OnlineVersion}","Shotbot Updater");
+                File.Move(AppDomain.CurrentDomain.FriendlyName, "Shotbot_Old.exe");
+                // Download
+                Uri DownloadPlace = new Uri("https://gostdud.000webhostapp.com/Shotbot.exe");
+                client.DownloadFileAsync(DownloadPlace, "Shotbot.exe");
+                Process.Start("Shotbot.exe");
+                Application.Exit();
+
+            }
+
             string foundKey = Whitelisting.Auth.GrabKey();
             if (foundKey != "")
             {
