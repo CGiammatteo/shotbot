@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Threading;
 
@@ -9,6 +8,7 @@ namespace Shotbot.TriggerbotFunctions
     {
         private static Random r = new Random();
         private static Rectangle rect = new Rectangle(Settings.monitor.Bounds.Width / 2 - (Settings.xPixels / 2), Settings.monitor.Bounds.Height / 2 - (Settings.xPixels / 2), Settings.xPixels, Settings.yPixels);
+        private static bool hasShot = false;
         public static void trigWorker()
         {
             while (true)
@@ -28,9 +28,9 @@ namespace Shotbot.TriggerbotFunctions
 
                             if (Settings.chosenColor == 1)
                             {
-                                if (ColorFuncs.CompareRed(col) && Settings.isShooting == false)
+                                if (ColorFuncs.CompareRed(col) && hasShot == false)
                                 {
-                                    Settings.isShooting = true;
+                                    hasShot = true;
                                     MouseFuncs.ShootGun();
                                     Thread.Sleep(rand);
                                 }
@@ -38,9 +38,9 @@ namespace Shotbot.TriggerbotFunctions
 
                             if (Settings.chosenColor == 2)
                             {
-                                if (ColorFuncs.ComparePurple(col) && Settings.isShooting == false)
+                                if (ColorFuncs.ComparePurple(col) && hasShot == false)
                                 {
-                                    Settings.isShooting = true;
+                                    hasShot = true;
                                     MouseFuncs.ShootGun();
                                     Thread.Sleep(rand);
                                 }
@@ -48,9 +48,9 @@ namespace Shotbot.TriggerbotFunctions
 
                             if (Settings.chosenColor == 3)
                             {
-                                if (ColorFuncs.CompareYellow(col) && Settings.isShooting == false)
+                                if (ColorFuncs.CompareYellow(col) && hasShot == false)
                                 {
-                                    Settings.isShooting = true;
+                                    hasShot = true;
                                     MouseFuncs.ShootGun();
                                     Thread.Sleep(rand);
                                 }
@@ -58,6 +58,7 @@ namespace Shotbot.TriggerbotFunctions
                         }
                     }
                 }
+                hasShot = false;
                 Thread.Sleep(1);
             }
         }

@@ -9,7 +9,7 @@ namespace Shotbot.Whitelisting
 {
     internal class Auth
     {
-        private static string cs = "Host=db.bit.io;Username=cgiammatteo112_demo_db_connection;Password=3ni4d_hA8SPKPhyUDqWa3kHjjn7f4;Database=shotbot";
+        private static string cs = "Host=db.old.bit.io;Username=cgiammatteo112_demo_db_connection;Password=3ni4d_hA8SPKPhyUDqWa3kHjjn7f4;Database=shotbot";
         private static NpgsqlConnection connection = new NpgsqlConnection(cs);
 
         public static bool AuthenticateUser()

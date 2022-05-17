@@ -379,6 +379,7 @@
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ValMain_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ValMain_FormClosed);
             this.Load += new System.EventHandler(this.ValMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).EndInit();
             this.metroTabControl1.ResumeLayout(false);

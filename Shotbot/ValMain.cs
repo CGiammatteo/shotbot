@@ -92,7 +92,11 @@ namespace Shotbot
         private void ValMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             Misc.ConfigSaving.SaveConfig();
-            Environment.Exit(0);
+        }
+
+        private void ValMain_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
 
         private void pixelTrackBar_ValueChanged(object sender, EventArgs e)

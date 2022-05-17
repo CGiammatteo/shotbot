@@ -6,7 +6,7 @@ namespace Shotbot.TriggerbotFunctions
     {
         public static bool CompareRed(Color foundColor)
         {
-            int threshold = 50;
+            int threshold = 30;
             Color red = Color.FromArgb(255,180,21,21);
 
             int r = (int)red.R - foundColor.R,
@@ -17,7 +17,7 @@ namespace Shotbot.TriggerbotFunctions
 
         public static bool ComparePurple(Color foundColor)
         {
-            int threshold = 50;
+            int threshold = 45;
             Color purple = Color.FromArgb(255, 175, 46, 175);
 
             int r = (int)purple.R - foundColor.R,
@@ -28,8 +28,13 @@ namespace Shotbot.TriggerbotFunctions
 
         public static bool CompareYellow(Color foundColor)
         {
-            
-            return false;
+            int threshold = 20;
+            Color yellow = Color.FromArgb(255, 165, 165, 40);
+
+            int r = (int)yellow.R - foundColor.R,
+                g = (int)yellow.G - foundColor.G,
+                b = (int)yellow.B - foundColor.B;
+            return (r * r + g * g + b * b) <= threshold * threshold;
         }
     }
 }
