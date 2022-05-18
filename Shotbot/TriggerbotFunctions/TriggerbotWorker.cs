@@ -57,6 +57,9 @@ namespace Shotbot.TriggerbotFunctions
                             }
                         }
                     }
+
+                    bmp.Dispose();
+                    g.Dispose();
                 }
                 hasShot = false;
                 Thread.Sleep(1);

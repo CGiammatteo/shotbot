@@ -29,7 +29,6 @@ namespace Shotbot.TriggerbotFunctions
             LeftDown();
             Thread.Sleep(rnd.Next(1, 5));
             LeftUp();
-            Settings.isShooting = false;
         }
     }
 }
