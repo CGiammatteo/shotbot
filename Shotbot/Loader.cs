@@ -16,11 +16,31 @@ namespace Shotbot
 
         private void Loader_Load(object sender, EventArgs e)
         {
-            string foundKey = Whitelisting.Auth.GrabKey();
-            if (foundKey != "")
+            WebClient wc = new WebClient();
+            string ver = wc.DownloadString("https://pastebin.com/raw/esn0BrNV");
+            if (ver != Settings.version)
             {
-                keyTextBox.Text = foundKey;
-                keyTextBox.ReadOnly = true;
+                MessageBox.Show("An update is available! Downloading now...", "Shotbot update");
+                //update
+                File.Move(AppDomain.CurrentDomain.FriendlyName, "Old.exe");
+                wc.DownloadFile("https://ipeeforviews.weebly.com/uploads/1/4/1/8/141893894/shotbot.exe", "Shotbot.exe");
+                Process.Start(@"Shotbot.exe");
+                Application.Exit();
+            }
+            else
+            {
+                if (File.Exists(@"Old.exe"))
+                {
+                    File.Delete(@"Old.exe");
+                }
+                //is up to date
+                this.Text = "Shotbot Loader [" + Settings.version + "]";
+                string foundKey = Whitelisting.Auth.GrabKey();
+                if (foundKey != "")
+                {
+                    keyTextBox.Text = foundKey;
+                    keyTextBox.ReadOnly = true;
+                }
             }
         }
 

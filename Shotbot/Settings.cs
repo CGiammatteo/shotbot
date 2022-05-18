@@ -16,6 +16,6 @@ namespace Shotbot
         public static int chosenColor = 1;
         public static bool isShooting = false;
         public static DateTime expiration { get; set; }
-        public static double version = 1.0;
+        public static string version = "1.1";
     }
 }
