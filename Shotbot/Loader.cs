@@ -42,6 +42,7 @@ namespace Shotbot
                     keyTextBox.ReadOnly = true;
                 }
             }
+            wc.Dispose(); // No memory leak :)
         }
 
         private void loginButton_Click(object sender, EventArgs e)
