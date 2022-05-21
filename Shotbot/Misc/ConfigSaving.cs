@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.IO;
+using System.Windows.Forms;
 
 namespace Shotbot.Misc
 {
@@ -8,6 +9,7 @@ namespace Shotbot.Misc
     {
         public static void SaveConfig()
         {
+            KeysConverter kt = new KeysConverter();
             JObject o1 = new JObject();
             using (StreamReader reader = File.OpenText(@"C:\Program Files\Shotbot\config.json"))
             {
@@ -28,6 +30,11 @@ namespace Shotbot.Misc
                 o1["ShotDelay"] = Settings.shotDelay;
                 o1["ShotSpeed"] = Settings.shotSpeed;
                 o1["ChosenColor"] = Settings.chosenColor;
+                o1["KeyBind"] = kt.ConvertToString(Settings.enableTriggerbotKeybind);
+
+                
+                
+               
 
                 serializer.Serialize(file, o1);
             }

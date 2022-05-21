@@ -25,7 +25,7 @@ namespace Shotbot
                 using (JsonReader jreader = new JsonTextReader(reader))
                 {
                     JObject o1 = (JObject)JToken.ReadFrom(jreader);
-
+                    KeysConverter kt = new KeysConverter();
                     Settings.xPixels = Convert.ToInt32(o1["XPixels"]);
                     metroTrackBar1.Value = Settings.xPixels;
                     xPixelsLabel.Text = $"Pixels: {Settings.xPixels}x{Settings.xPixels}";
@@ -37,7 +37,9 @@ namespace Shotbot
                     Settings.shotSpeed = Convert.ToInt32(o1["ShotSpeed"]);
                     delayTextBox.Text = Convert.ToString(Settings.shotSpeed);
                     Settings.chosenColor = Convert.ToInt32(o1["ChosenColor"]);
-
+                    Keys key = (Keys)Enum.Parse(typeof(Keys), Convert.ToString(o1["KeyBind"]), true);
+                    Settings.enableTriggerbotKeybind = key;
+                    triggerbotKeybindButton.Text = $"Keybind: {o1["KeyBind"]}";
                     switch (Settings.chosenColor)
                     {
                         case 1:
