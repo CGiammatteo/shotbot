@@ -84,4 +84,7 @@ C:\Users\black\Documents\GitHub\shotbot\Shotbot\obj\Release\Shotbot.csproj.Fody.
 C:\Users\black\Documents\GitHub\shotbot\Shotbot\obj\Release\Shotbot.csproj.CopyComplete
 C:\Users\black\Documents\GitHub\shotbot\Shotbot\obj\Release\Shotbot.exe
 C:\Users\black\Documents\GitHub\shotbot\Shotbot\obj\Release\Shotbot.pdb
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
