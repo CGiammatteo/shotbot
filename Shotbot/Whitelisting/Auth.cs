@@ -4,12 +4,15 @@ using System.Data;
 using System.IO;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Windows.Forms;
+using System.Globalization;
+using System.Text;
 
 namespace Shotbot.Whitelisting
 {
     internal class Auth
     {
-        private static string cs = "Host=db.old.bit.io;Username=cgiammatteo112_demo_db_connection;Password=3ni4d_hA8SPKPhyUDqWa3kHjjn7f4;Database=shotbot";
+        private static string cs = "Host=db.old.bit.io;Username=cgiammatteo112_demo_db_connection;Password=3ni4d_hA8SPKPhyUDqWa3kHjjn7f4;Database=shotbot"; //Host=db.bit.io;Username=cgiammatteo112;Password=3q5u4_Ycgj4EDtZd7r6bE88WtAePd;Database=cgiammatteo112
         private static NpgsqlConnection connection = new NpgsqlConnection(cs);
 
         public static bool AuthenticateUser()
@@ -119,7 +122,7 @@ namespace Shotbot.Whitelisting
             {
                 connection.Open();
 
-                var sqlCmd = $"UPDATE \"cgiammatteo112/shotbot\".\"data\" SET hwid='{Hwid.GrabHwid()}', time='{time}' WHERE key='{key}';";
+                var sqlCmd = $"UPDATE \"cgiammatteo112/shotbot\".\"data\" SET hwid='{Hwid.GrabHwid()}', time='{Convert.ToDateTime(time)}' WHERE key='{key}';";
                 var cmdSent = new NpgsqlCommand(sqlCmd, connection);
                 cmdSent.ExecuteNonQuery();
 
