@@ -17,13 +17,13 @@ namespace Shotbot
         private void Loader_Load(object sender, EventArgs e)
         {
             WebClient wc = new WebClient();
-            string ver = wc.DownloadString("https://pastebin.com/raw/dV7ih4ww");
+            string ver = wc.DownloadString("http://34.230.44.28/shotbot/Version");
             if (ver != Settings.version)
             {
                 MessageBox.Show("An update is available! Downloading now...", "Shotbot update");
                 //update
                 File.Move(AppDomain.CurrentDomain.FriendlyName, "Old.exe");
-                wc.DownloadFile("https://ipeeforviews.weebly.com/uploads/1/4/1/8/141893894/shotbot.exe", "Shotbot.exe");
+                wc.DownloadFile("http://34.230.44.28/shotbot/Shotbot.exe", "Shotbot.exe");
                 Process.Start(@"Shotbot.exe");
                 Application.Exit();
             }
