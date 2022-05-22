@@ -12,7 +12,7 @@ namespace Shotbot
         public static bool enabled = false;
         public static int shotSpeed = 100; //miliseconds
         public static int shotDelay = 75; //miliseconds
-        public static Keys enableTriggerbotKeybind = Keys.None;
+        public static Keys enableTriggerbotKeybind = Keys.Alt;
         public static int chosenColor = 1;
         public static DateTime expiration { get; set; }
         public static string version = "1.15b";

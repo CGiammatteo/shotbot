@@ -37,9 +37,19 @@ namespace Shotbot
                     Settings.shotSpeed = Convert.ToInt32(o1["ShotSpeed"]);
                     delayTextBox.Text = Convert.ToString(Settings.shotSpeed);
                     Settings.chosenColor = Convert.ToInt32(o1["ChosenColor"]);
+                    try
+                    {
                     Keys key = (Keys)Enum.Parse(typeof(Keys), Convert.ToString(o1["KeyBind"]), true);
-                    Settings.enableTriggerbotKeybind = key;
-                    triggerbotKeybindButton.Text = $"Keybind: {o1["KeyBind"]}";
+                        Settings.enableTriggerbotKeybind = key;
+                        triggerbotKeybindButton.Text = $"Keybind: {o1["KeyBind"]}";
+                    }
+                    catch
+                    {
+                        Keys key = Keys.Alt;
+                        Settings.enableTriggerbotKeybind = key;
+                        triggerbotKeybindButton.Text = $"Keybind: Alt";
+                    }
+                   
                     switch (Settings.chosenColor)
                     {
                         case 1:
