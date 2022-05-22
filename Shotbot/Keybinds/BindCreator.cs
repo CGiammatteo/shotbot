@@ -30,7 +30,7 @@ namespace Shotbot.Keybinds
                         keyName = Enum.GetName(typeof(Keys), i);
                         foundKey = (Keys)Enum.Parse(typeof(Keys), keyName, true);
                         found = true;
-
+                        
                         DialogResult dResult = MessageBox.Show($"Are you sure you would like to set the triggerbot's keybind to {foundKey}?", "Keybind", MessageBoxButtons.YesNo);
 
                         if (dResult == DialogResult.Yes)

@@ -17,13 +17,13 @@ namespace Shotbot
         private void Loader_Load(object sender, EventArgs e)
         {
             WebClient wc = new WebClient();
-            string ver = wc.DownloadString("https://pastebin.com/raw/esn0BrNV");
+            string ver = wc.DownloadString("http://34.230.44.28/shotbot/Version");
             if (ver != Settings.version)
             {
                 MessageBox.Show("An update is available! Downloading now...", "Shotbot update");
                 //update
                 File.Move(AppDomain.CurrentDomain.FriendlyName, "Old.exe");
-                wc.DownloadFile("https://ipeeforviews.weebly.com/uploads/1/4/1/8/141893894/shotbot.exe", "Shotbot.exe");
+                wc.DownloadFile("http://34.230.44.28/shotbot/Shotbot.exe", "Shotbot.exe");
                 Process.Start(@"Shotbot.exe");
                 Application.Exit();
             }
@@ -42,6 +42,7 @@ namespace Shotbot
                     keyTextBox.ReadOnly = true;
                 }
             }
+            wc.Dispose(); // No memory leak :)
         }
 
         private void loginButton_Click(object sender, EventArgs e)
@@ -57,7 +58,7 @@ namespace Shotbot
             }
             else
             {
-                MessageBox.Show("You are not whitelisted!");
+                MessageBox.Show("You are not whitelisted!", "Shotbot Whitelist");
                 Environment.Exit(0);
             }
         }
@@ -70,12 +71,12 @@ namespace Shotbot
 
             if (worked)
             {
-                MessageBox.Show("You have been whitelisted! Reopen the program to continue.");
+                MessageBox.Show("You have been whitelisted! Reopen the program to continue.", "Shotbox Whitelist");
                 Environment.Exit(0);
             }
             else
             {
-                MessageBox.Show("Unable to whitelist your account!");
+                MessageBox.Show("Unable to whitelist your account!", "Shotbox Whitelist");
                 Environment.Exit(0);
             }
         }
