@@ -10,11 +10,12 @@ namespace Shotbot
         public static Screen monitor = Screen.PrimaryScreen;
         public static bool audio = true;
         public static bool enabled = false;
+        public static bool overlayEnabled = false;
         public static int shotSpeed = 100; //miliseconds
         public static int shotDelay = 75; //miliseconds
         public static Keys enableTriggerbotKeybind = Keys.Alt;
         public static int chosenColor = 1;
         public static DateTime expiration { get; set; }
-        public static string version = "1.15b";
+        public static string version = "1.2";
     }
 }

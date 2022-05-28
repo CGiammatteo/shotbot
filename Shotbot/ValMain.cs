@@ -12,6 +12,7 @@ namespace Shotbot
     public partial class ValMain : MetroFramework.Forms.MetroForm
     {
         private static Random random = new Random();
+        private Overlay overlay = new Overlay();
 
         public ValMain()
         {
@@ -88,7 +89,6 @@ namespace Shotbot
             Binds.Start();
             Time.Start();
 
-            pictureBox1.Image = TriggerbotFunctions.PixelFuncs.GetPixelPicture();
             expirationLabel.Text = $"License expiration: {Settings.expiration.ToLocalTime().Date}";
 
             //load config here (config in shotbot folder, json format)
@@ -208,7 +208,22 @@ namespace Shotbot
             xPixelsLabel.Text = "Pixels: " + metroTrackBar1.Value + "x" + metroTrackBar1.Value;
             Settings.xPixels = metroTrackBar1.Value;
             Settings.yPixels = metroTrackBar1.Value;
-            pictureBox1.Image = TriggerbotFunctions.PixelFuncs.GetPixelPicture();
+        }
+
+        private void overlayToggle_Click(object sender, EventArgs e)
+        {
+            Settings.overlayEnabled = !Settings.overlayEnabled;
+
+            if (Settings.overlayEnabled)
+            {
+                overlay.Show();
+                overlayToggle.Text = "Disable overlay";
+            }
+            else
+            {
+                overlay.Hide();
+                overlayToggle.Text = "Enable overlay";
+            }
         }
     }
 }

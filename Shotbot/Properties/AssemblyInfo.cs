@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly. Shotbot
-[assembly: AssemblyTitle("B8G7TBIL74G")]//
+[assembly: AssemblyTitle("56JRFJLO9")]//
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("EJ5REW43GR45")]//
-[assembly: AssemblyCopyright("Copyright ©  1911")]
+[assembly: AssemblyProduct("W4ESRJ7Y6U")]//
+[assembly: AssemblyCopyright("Copyright ©  2010")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("3bd1afd1-7fe8-4e52-b403-56f329954ebc")]
+[assembly: Guid("3ad1a3d1-7fe8-4e52-b403-56f329954ebc")]
 
 // Version information for an assembly consists of the following four values:
 //
