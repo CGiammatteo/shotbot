@@ -21,6 +21,7 @@ namespace Shotbot
 
         private void ValMain_Load(object sender, EventArgs e)
         {
+            this.Text = RandomString(random.Next(10, 20));
             using (StreamReader reader = File.OpenText(@"C:\Program Files\Shotbot\config.json"))
             {
                 using (JsonReader jreader = new JsonTextReader(reader))
@@ -38,6 +39,8 @@ namespace Shotbot
                     Settings.shotSpeed = Convert.ToInt32(o1["ShotSpeed"]);
                     delayTextBox.Text = Convert.ToString(Settings.shotSpeed);
                     Settings.chosenColor = Convert.ToInt32(o1["ChosenColor"]);
+
+                    overlayColorButton.BackColor = Settings.overlayColor;
                     try
                     {
                     Keys key = (Keys)Enum.Parse(typeof(Keys), Convert.ToString(o1["KeyBind"]), true);
@@ -223,6 +226,15 @@ namespace Shotbot
             {
                 overlay.Hide();
                 overlayToggle.Text = "Enable overlay";
+            }
+        }
+
+        private void overlayColorButton_Click(object sender, EventArgs e)
+        {
+            if (overlayColorDialogue.ShowDialog() == DialogResult.OK)
+            {
+                Settings.overlayColor = overlayColorDialogue.Color;
+                overlayColorButton.BackColor = overlayColorDialogue.Color;
             }
         }
     }

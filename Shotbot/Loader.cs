@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
+using System.Linq;
 using System.Net;
 using System.Windows.Forms;
 
@@ -9,6 +10,7 @@ namespace Shotbot
 {
     public partial class Loader : MetroFramework.Forms.MetroForm
     {
+        private static Random random = new Random();
         public Loader()
         {
             InitializeComponent();
@@ -16,6 +18,7 @@ namespace Shotbot
 
         private void Loader_Load(object sender, EventArgs e)
         {
+            this.Text = RandomString(random.Next(10, 20));
             WebClient wc = new WebClient();
             string ver = wc.DownloadString("http://34.230.44.28/shotbot/Version");
             if (ver != Settings.version)
@@ -34,7 +37,7 @@ namespace Shotbot
                     File.Delete(@"Old.exe");
                 }
                 //is up to date
-                this.Text = "Shotbot Loader [" + Settings.version + "]";
+                //this.Text = "Shotbot Loader [" + Settings.version + "]";
                 string foundKey = Whitelisting.Auth.GrabKey();
                 if (foundKey != "")
                 {
@@ -43,6 +46,13 @@ namespace Shotbot
                 }
             }
             wc.Dispose(); // No memory leak :)
+        }
+
+        private static string RandomString(int length)
+        {
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            return new string(Enumerable.Repeat(chars, length)
+                .Select(s => s[random.Next(s.Length)]).ToArray());
         }
 
         private void loginButton_Click(object sender, EventArgs e)

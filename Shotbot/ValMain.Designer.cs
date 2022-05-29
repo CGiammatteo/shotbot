@@ -33,6 +33,7 @@
             this.metroStyleManager1 = new MetroFramework.Components.MetroStyleManager(this.components);
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
+            this.overlayToggle = new MetroFramework.Controls.MetroButton();
             this.metroTrackBar1 = new MetroFramework.Controls.MetroTrackBar();
             this.pixelTrackBar = new MetroFramework.Controls.MetroTrackBar();
             this.xPixelsLabel = new MetroFramework.Controls.MetroLabel();
@@ -56,7 +57,8 @@
             this.topmostCheckBox = new MetroFramework.Controls.MetroCheckBox();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.expirationLabel = new MetroFramework.Controls.MetroLabel();
-            this.overlayToggle = new MetroFramework.Controls.MetroButton();
+            this.overlayColorDialogue = new System.Windows.Forms.ColorDialog();
+            this.overlayColorButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
             this.metroTabControl1.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
@@ -83,6 +85,7 @@
             // 
             // metroTabPage1
             // 
+            this.metroTabPage1.Controls.Add(this.overlayColorButton);
             this.metroTabPage1.Controls.Add(this.overlayToggle);
             this.metroTabPage1.Controls.Add(this.metroTrackBar1);
             this.metroTabPage1.Controls.Add(this.pixelTrackBar);
@@ -94,6 +97,15 @@
             this.metroTabPage1.TabIndex = 0;
             this.metroTabPage1.Text = "Detection";
             this.metroTabPage1.VerticalScrollbarBarColor = true;
+            // 
+            // overlayToggle
+            // 
+            this.overlayToggle.Location = new System.Drawing.Point(3, 61);
+            this.overlayToggle.Name = "overlayToggle";
+            this.overlayToggle.Size = new System.Drawing.Size(141, 23);
+            this.overlayToggle.TabIndex = 6;
+            this.overlayToggle.Text = "Enable overlay";
+            this.overlayToggle.Click += new System.EventHandler(this.overlayToggle_Click);
             // 
             // metroTrackBar1
             // 
@@ -342,14 +354,15 @@
             this.expirationLabel.TabIndex = 1;
             this.expirationLabel.Text = "license expiration";
             // 
-            // overlayToggle
+            // overlayColorButton
             // 
-            this.overlayToggle.Location = new System.Drawing.Point(3, 61);
-            this.overlayToggle.Name = "overlayToggle";
-            this.overlayToggle.Size = new System.Drawing.Size(238, 23);
-            this.overlayToggle.TabIndex = 6;
-            this.overlayToggle.Text = "Enable overlay";
-            this.overlayToggle.Click += new System.EventHandler(this.overlayToggle_Click);
+            this.overlayColorButton.Location = new System.Drawing.Point(150, 61);
+            this.overlayColorButton.Name = "overlayColorButton";
+            this.overlayColorButton.Size = new System.Drawing.Size(91, 23);
+            this.overlayColorButton.TabIndex = 8;
+            this.overlayColorButton.Text = "Change color";
+            this.overlayColorButton.UseVisualStyleBackColor = true;
+            this.overlayColorButton.Click += new System.EventHandler(this.overlayColorButton_Click);
             // 
             // ValMain
             // 
@@ -411,5 +424,7 @@
         private MetroFramework.Controls.MetroLabel metroLabel3;
         private MetroFramework.Controls.MetroTrackBar metroTrackBar1;
         private MetroFramework.Controls.MetroButton overlayToggle;
+        private System.Windows.Forms.ColorDialog overlayColorDialogue;
+        private System.Windows.Forms.Button overlayColorButton;
     }
 }

@@ -1247,4 +1247,7 @@
         8buozqVwSHTpgCcYcxP4vdZUWLJvRzbsvQ5gZ6uAiIj+A1YtdioTrKpbAAAAAElFTkSuQmCC
 </value>
   </data>
+  <metadata name="overlayColorDialogue.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>183, 17</value>
+  </metadata>
 </root>

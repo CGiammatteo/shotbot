@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Shotbot
@@ -16,6 +17,8 @@ namespace Shotbot
         public static Keys enableTriggerbotKeybind = Keys.Alt;
         public static int chosenColor = 1;
         public static DateTime expiration { get; set; }
-        public static string version = "1.2";
+        public static string version = "1.2a";
+
+        public static Color overlayColor = Color.FromArgb(255,255,255,0);
     }
 }
