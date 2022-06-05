@@ -28,9 +28,11 @@ namespace Shotbot
                 {
                     JObject o1 = (JObject)JToken.ReadFrom(jreader);
                     KeysConverter kt = new KeysConverter();
+
                     Settings.xPixels = Convert.ToInt32(o1["XPixels"]);
                     metroTrackBar1.Value = Settings.xPixels;
                     xPixelsLabel.Text = $"Pixels: {Settings.xPixels}x{Settings.xPixels}";
+
                     Settings.yPixels = Convert.ToInt32(o1["YPixels"]);
                     Settings.audio = Convert.ToBoolean(o1["Audio"]);
                     audioCheckBox.Checked = Settings.audio;
@@ -39,6 +41,14 @@ namespace Shotbot
                     Settings.shotSpeed = Convert.ToInt32(o1["ShotSpeed"]);
                     delayTextBox.Text = Convert.ToString(Settings.shotSpeed);
                     Settings.chosenColor = Convert.ToInt32(o1["ChosenColor"]);
+
+                    Settings.colorMultiplier = Convert.ToInt32(o1["ColorSens"]);
+                    if(Settings.colorMultiplier == 0)
+                    {
+                        Settings.colorMultiplier = 1;
+                    }
+                    metroTrackBar2.Value = Settings.colorMultiplier;
+                    multLabel.Text = $"Color sensitivity multiplier: {Settings.colorMultiplier}x";
 
                     overlayColorButton.BackColor = Settings.overlayColor;
                     try
@@ -236,6 +246,12 @@ namespace Shotbot
                 Settings.overlayColor = overlayColorDialogue.Color;
                 overlayColorButton.BackColor = overlayColorDialogue.Color;
             }
+        }
+
+        private void metroTrackBar2_ValueChanged(object sender, EventArgs e)
+        {
+            multLabel.Text = $"Color sensitivity multiplier: {metroTrackBar2.Value}x";
+            Settings.colorMultiplier = metroTrackBar2.Value;
         }
     }
 }

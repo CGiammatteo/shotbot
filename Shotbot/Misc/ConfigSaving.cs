@@ -32,6 +32,7 @@ namespace Shotbot.Misc
                 o1["ChosenColor"] = Settings.chosenColor;
                 o1["KeyBind"] = kt.ConvertToString(Settings.enableTriggerbotKeybind);
                 o1["OverlayColor"] = Settings.overlayColor.ToString();
+                o1["ColorSens"] = Settings.colorMultiplier;
 
                 serializer.Serialize(file, o1);
             }

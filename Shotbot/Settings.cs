@@ -17,8 +17,10 @@ namespace Shotbot
         public static Keys enableTriggerbotKeybind = Keys.Alt;
         public static int chosenColor = 1;
         public static DateTime expiration { get; set; }
-        public static string version = "1.2a";
+        public static string version = "1.2b";
 
         public static Color overlayColor = Color.FromArgb(255,255,255,0);
+
+        public static int colorMultiplier = 1;
     }
 }

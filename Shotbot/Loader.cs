@@ -58,9 +58,9 @@ namespace Shotbot
         private void loginButton_Click(object sender, EventArgs e)
         {
             statusLabel.Text = "Logging you in...";
-            bool isWhitelisted = Whitelisting.Auth.AuthenticateUser();
+            //bool isWhitelisted = Whitelisting.Auth.AuthenticateUser();
 
-            if (isWhitelisted)
+            if (Whitelisting.Auth.AuthenticateUser())
             {
                 var mainUi = new ValMain();
                 mainUi.Show();
