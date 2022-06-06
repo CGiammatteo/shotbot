@@ -42,7 +42,6 @@ namespace Shotbot
                 if (foundKey != "")
                 {
                     keyTextBox.Text = foundKey;
-                    keyTextBox.ReadOnly = true;
                 }
             }
             wc.Dispose(); // No memory leak :)
