@@ -4,6 +4,7 @@ using System.Data;
 using System.IO;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Windows.Forms;
 
 namespace Shotbot.Whitelisting
 {
@@ -80,7 +81,6 @@ namespace Shotbot.Whitelisting
 
             NpgsqlDataReader reader = cmd.ExecuteReader();
             DataTable schemaTable = reader.GetSchemaTable();
-
             while (reader.Read())
             {
                 for (int colNum = 0; colNum < reader.FieldCount; colNum++)
@@ -121,10 +121,9 @@ namespace Shotbot.Whitelisting
             if (success == true)
             {
                 connection.Open();
-
-
                 //var sqlCmd = $"UPDATE \"cgiammatteo112/shotbot\".\"data\" SET hwid='{Hwid.GrabHwid()}', time='{Convert.ToDateTime(time)}' WHERE key='{key}';";
-                var sqlCmd = $"UPDATE shotbot SET hwid='{Hwid.GrabHwid()}', time='{Convert.ToDateTime(time)}' WHERE key='{key}';";
+                //issue here
+                var sqlCmd = $"UPDATE shotbot SET hwid='{Hwid.GrabHwid()}', time='{time}' WHERE key='{key}';";
 
                 var cmdSent = new NpgsqlCommand(sqlCmd, connection);
                 cmdSent.ExecuteNonQuery();
@@ -157,6 +156,7 @@ namespace Shotbot.Whitelisting
                         new JProperty("ShotDelay", Settings.shotDelay),
                         new JProperty("ShotSpeed", Settings.shotSpeed),
                         new JProperty("ChosenColor", Settings.chosenColor));
+                        new JProperty("ColorSens", Settings.colorMultiplier);
 
                     serializer.Serialize(file, configData);
                 }

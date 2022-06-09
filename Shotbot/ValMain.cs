@@ -12,6 +12,7 @@ namespace Shotbot
     public partial class ValMain : MetroFramework.Forms.MetroForm
     {
         private static Random random = new Random();
+        private Overlay overlay = new Overlay();
 
         public ValMain()
         {
@@ -20,15 +21,18 @@ namespace Shotbot
 
         private void ValMain_Load(object sender, EventArgs e)
         {
+            this.Text = RandomString(random.Next(10, 20));
             using (StreamReader reader = File.OpenText(@"C:\Program Files\Shotbot\config.json"))
             {
                 using (JsonReader jreader = new JsonTextReader(reader))
                 {
                     JObject o1 = (JObject)JToken.ReadFrom(jreader);
                     KeysConverter kt = new KeysConverter();
+
                     Settings.xPixels = Convert.ToInt32(o1["XPixels"]);
                     metroTrackBar1.Value = Settings.xPixels;
                     xPixelsLabel.Text = $"Pixels: {Settings.xPixels}x{Settings.xPixels}";
+
                     Settings.yPixels = Convert.ToInt32(o1["YPixels"]);
                     Settings.audio = Convert.ToBoolean(o1["Audio"]);
                     audioCheckBox.Checked = Settings.audio;
@@ -37,9 +41,29 @@ namespace Shotbot
                     Settings.shotSpeed = Convert.ToInt32(o1["ShotSpeed"]);
                     delayTextBox.Text = Convert.ToString(Settings.shotSpeed);
                     Settings.chosenColor = Convert.ToInt32(o1["ChosenColor"]);
+
+                    Settings.colorMultiplier = Convert.ToInt32(o1["ColorSens"]);
+                    if(Settings.colorMultiplier == 0)
+                    {
+                        Settings.colorMultiplier = 1;
+                    }
+                    metroTrackBar2.Value = Settings.colorMultiplier;
+                    multLabel.Text = $"Color sensitivity multiplier: {Settings.colorMultiplier}x";
+
+                    overlayColorButton.BackColor = Settings.overlayColor;
+                    try
+                    {
                     Keys key = (Keys)Enum.Parse(typeof(Keys), Convert.ToString(o1["KeyBind"]), true);
-                    Settings.enableTriggerbotKeybind = key;
-                    triggerbotKeybindButton.Text = $"Keybind: {o1["KeyBind"]}";
+                        Settings.enableTriggerbotKeybind = key;
+                        triggerbotKeybindButton.Text = $"Keybind: {o1["KeyBind"]}";
+                    }
+                    catch
+                    {
+                        Keys key = Keys.Alt;
+                        Settings.enableTriggerbotKeybind = key;
+                        triggerbotKeybindButton.Text = $"Keybind: Alt";
+                    }
+                   
                     switch (Settings.chosenColor)
                     {
                         case 1:
@@ -78,7 +102,6 @@ namespace Shotbot
             Binds.Start();
             Time.Start();
 
-            pictureBox1.Image = TriggerbotFunctions.PixelFuncs.GetPixelPicture();
             expirationLabel.Text = $"License expiration: {Settings.expiration.ToLocalTime().Date}";
 
             //load config here (config in shotbot folder, json format)
@@ -198,7 +221,37 @@ namespace Shotbot
             xPixelsLabel.Text = "Pixels: " + metroTrackBar1.Value + "x" + metroTrackBar1.Value;
             Settings.xPixels = metroTrackBar1.Value;
             Settings.yPixels = metroTrackBar1.Value;
-            pictureBox1.Image = TriggerbotFunctions.PixelFuncs.GetPixelPicture();
+        }
+
+        private void overlayToggle_Click(object sender, EventArgs e)
+        {
+            Settings.overlayEnabled = !Settings.overlayEnabled;
+
+            if (Settings.overlayEnabled)
+            {
+                overlay.Show();
+                overlayToggle.Text = "Disable overlay";
+            }
+            else
+            {
+                overlay.Hide();
+                overlayToggle.Text = "Enable overlay";
+            }
+        }
+
+        private void overlayColorButton_Click(object sender, EventArgs e)
+        {
+            if (overlayColorDialogue.ShowDialog() == DialogResult.OK)
+            {
+                Settings.overlayColor = overlayColorDialogue.Color;
+                overlayColorButton.BackColor = overlayColorDialogue.Color;
+            }
+        }
+
+        private void metroTrackBar2_ValueChanged(object sender, EventArgs e)
+        {
+            multLabel.Text = $"Color sensitivity multiplier: {metroTrackBar2.Value}x";
+            Settings.colorMultiplier = metroTrackBar2.Value;
         }
     }
 }

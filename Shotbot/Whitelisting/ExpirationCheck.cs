@@ -9,7 +9,7 @@ namespace Shotbot.Whitelisting
         {
             while (true)
             {
-                if(DateTime.UtcNow > Settings.expiration)
+                if(Convert.ToDateTime(DateTime.UtcNow) > Settings.expiration)
                 {
                     Auth.DeleteLicense(Auth.GrabKey());
                     MessageBox.Show("Your license time has ran out! To use Shotbot again, you must purchase another license!");

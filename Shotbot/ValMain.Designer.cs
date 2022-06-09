@@ -33,11 +33,11 @@
             this.metroStyleManager1 = new MetroFramework.Components.MetroStyleManager(this.components);
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
+            this.overlayColorButton = new System.Windows.Forms.Button();
+            this.overlayToggle = new MetroFramework.Controls.MetroButton();
             this.metroTrackBar1 = new MetroFramework.Controls.MetroTrackBar();
             this.pixelTrackBar = new MetroFramework.Controls.MetroTrackBar();
             this.xPixelsLabel = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
             this.metroTextBox1 = new MetroFramework.Controls.MetroTextBox();
@@ -58,10 +58,12 @@
             this.topmostCheckBox = new MetroFramework.Controls.MetroCheckBox();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.expirationLabel = new MetroFramework.Controls.MetroLabel();
+            this.overlayColorDialogue = new System.Windows.Forms.ColorDialog();
+            this.metroTrackBar2 = new MetroFramework.Controls.MetroTrackBar();
+            this.multLabel = new MetroFramework.Controls.MetroLabel();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
             this.metroTabControl1.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.metroTabPage2.SuspendLayout();
             this.metroTabPage3.SuspendLayout();
             this.SuspendLayout();
@@ -79,30 +81,51 @@
             this.metroTabControl1.Controls.Add(this.metroTabPage3);
             this.metroTabControl1.Location = new System.Drawing.Point(23, 63);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 1;
+            this.metroTabControl1.SelectedIndex = 0;
             this.metroTabControl1.Size = new System.Drawing.Size(252, 294);
             this.metroTabControl1.TabIndex = 0;
             // 
             // metroTabPage1
             // 
+            this.metroTabPage1.Controls.Add(this.metroTrackBar2);
+            this.metroTabPage1.Controls.Add(this.multLabel);
+            this.metroTabPage1.Controls.Add(this.overlayColorButton);
+            this.metroTabPage1.Controls.Add(this.overlayToggle);
             this.metroTabPage1.Controls.Add(this.metroTrackBar1);
             this.metroTabPage1.Controls.Add(this.pixelTrackBar);
             this.metroTabPage1.Controls.Add(this.xPixelsLabel);
-            this.metroTabPage1.Controls.Add(this.metroLabel1);
-            this.metroTabPage1.Controls.Add(this.pictureBox1);
             this.metroTabPage1.HorizontalScrollbarBarColor = true;
             this.metroTabPage1.Location = new System.Drawing.Point(4, 35);
             this.metroTabPage1.Name = "metroTabPage1";
             this.metroTabPage1.Size = new System.Drawing.Size(244, 255);
             this.metroTabPage1.TabIndex = 0;
-            this.metroTabPage1.Text = "Detection";
+            this.metroTabPage1.Text = "Visuals";
             this.metroTabPage1.VerticalScrollbarBarColor = true;
+            // 
+            // overlayColorButton
+            // 
+            this.overlayColorButton.Location = new System.Drawing.Point(150, 109);
+            this.overlayColorButton.Name = "overlayColorButton";
+            this.overlayColorButton.Size = new System.Drawing.Size(91, 23);
+            this.overlayColorButton.TabIndex = 8;
+            this.overlayColorButton.Text = "Change color";
+            this.overlayColorButton.UseVisualStyleBackColor = true;
+            this.overlayColorButton.Click += new System.EventHandler(this.overlayColorButton_Click);
+            // 
+            // overlayToggle
+            // 
+            this.overlayToggle.Location = new System.Drawing.Point(3, 109);
+            this.overlayToggle.Name = "overlayToggle";
+            this.overlayToggle.Size = new System.Drawing.Size(141, 23);
+            this.overlayToggle.TabIndex = 6;
+            this.overlayToggle.Text = "Enable overlay";
+            this.overlayToggle.Click += new System.EventHandler(this.overlayToggle_Click);
             // 
             // metroTrackBar1
             // 
             this.metroTrackBar1.BackColor = System.Drawing.Color.Transparent;
             this.metroTrackBar1.LargeChange = 10;
-            this.metroTrackBar1.Location = new System.Drawing.Point(3, 188);
+            this.metroTrackBar1.Location = new System.Drawing.Point(3, 32);
             this.metroTrackBar1.Minimum = 5;
             this.metroTrackBar1.Name = "metroTrackBar1";
             this.metroTrackBar1.Size = new System.Drawing.Size(238, 23);
@@ -122,29 +145,11 @@
             // xPixelsLabel
             // 
             this.xPixelsLabel.AutoSize = true;
-            this.xPixelsLabel.Location = new System.Drawing.Point(0, 166);
+            this.xPixelsLabel.Location = new System.Drawing.Point(0, 10);
             this.xPixelsLabel.Name = "xPixelsLabel";
             this.xPixelsLabel.Size = new System.Drawing.Size(78, 19);
             this.xPixelsLabel.TabIndex = 4;
             this.xPixelsLabel.Text = "Pixels: 10x10";
-            // 
-            // metroLabel1
-            // 
-            this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(3, 2);
-            this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(99, 19);
-            this.metroLabel1.TabIndex = 3;
-            this.metroLabel1.Text = "Detection zone:";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(3, 24);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(238, 136);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
             // 
             // metroTabPage2
             // 
@@ -363,6 +368,29 @@
             this.expirationLabel.TabIndex = 1;
             this.expirationLabel.Text = "license expiration";
             // 
+            // metroTrackBar2
+            // 
+            this.metroTrackBar2.BackColor = System.Drawing.Color.Transparent;
+            this.metroTrackBar2.LargeChange = 2;
+            this.metroTrackBar2.Location = new System.Drawing.Point(6, 80);
+            this.metroTrackBar2.Maximum = 20;
+            this.metroTrackBar2.Minimum = 1;
+            this.metroTrackBar2.Name = "metroTrackBar2";
+            this.metroTrackBar2.Size = new System.Drawing.Size(238, 23);
+            this.metroTrackBar2.TabIndex = 10;
+            this.metroTrackBar2.Text = "sensMultTrackBar";
+            this.metroTrackBar2.Value = 1;
+            this.metroTrackBar2.ValueChanged += new System.EventHandler(this.metroTrackBar2_ValueChanged);
+            // 
+            // multLabel
+            // 
+            this.multLabel.AutoSize = true;
+            this.multLabel.Location = new System.Drawing.Point(3, 58);
+            this.multLabel.Name = "multLabel";
+            this.multLabel.Size = new System.Drawing.Size(177, 19);
+            this.multLabel.TabIndex = 9;
+            this.multLabel.Text = "Color sensitivity multiplier: 1x";
+            // 
             // ValMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -385,7 +413,6 @@
             this.metroTabControl1.ResumeLayout(false);
             this.metroTabPage1.ResumeLayout(false);
             this.metroTabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.metroTabPage2.ResumeLayout(false);
             this.metroTabPage2.PerformLayout();
             this.metroTabPage3.ResumeLayout(false);
@@ -402,8 +429,6 @@
         private MetroFramework.Controls.MetroTabPage metroTabPage1;
         private MetroFramework.Controls.MetroTrackBar pixelTrackBar;
         private MetroFramework.Controls.MetroLabel xPixelsLabel;
-        private MetroFramework.Controls.MetroLabel metroLabel1;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private MetroFramework.Controls.MetroTabPage metroTabPage2;
         private MetroFramework.Controls.MetroRadioButton yellowRadioButton;
         private MetroFramework.Controls.MetroRadioButton purpleRadioButton;
@@ -425,5 +450,10 @@
         private MetroFramework.Controls.MetroTextBox metroTextBox1;
         private MetroFramework.Controls.MetroLabel metroLabel3;
         private MetroFramework.Controls.MetroTrackBar metroTrackBar1;
+        private MetroFramework.Controls.MetroButton overlayToggle;
+        private System.Windows.Forms.ColorDialog overlayColorDialogue;
+        private System.Windows.Forms.Button overlayColorButton;
+        private MetroFramework.Controls.MetroTrackBar metroTrackBar2;
+        private MetroFramework.Controls.MetroLabel multLabel;
     }
 }
