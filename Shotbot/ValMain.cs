@@ -176,15 +176,8 @@ namespace Shotbot
 
         private void delaySetButton_Click(object sender, EventArgs e)
         {
-            if(Convert.ToInt32(delayTextBox.Text) < 5 || delayTextBox.Text == "")
-            {
-                MessageBox.Show("Cannot set a value less than 5!", "Error");
-            }
-            else
-            {
-                Settings.shotSpeed = Convert.ToInt32(delayTextBox.Text);
-                MessageBox.Show($"Set shot speed to {Settings.shotSpeed} successfully!", "Success!");
-            }
+            Settings.shotSpeed = Convert.ToInt32(delayTextBox.Text);
+            MessageBox.Show($"Set shot speed to {Settings.shotSpeed} successfully!", "Success!");
         }
 
         private void delayTextBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -205,15 +198,8 @@ namespace Shotbot
 
         private void metroButton1_Click(object sender, EventArgs e)
         {
-            if (Convert.ToInt32(delayTextBox.Text) < 50 || delayTextBox.Text == "")
-            {
-                MessageBox.Show("Cannot set a value less than 50!", "Error");
-            }
-            else
-            {
-                Settings.shotDelay = Convert.ToInt32(metroTextBox1.Text);
-                MessageBox.Show($"Set shot delay to {Settings.shotDelay} successfully!", "Success!");
-            }
+            Settings.shotDelay = Convert.ToInt32(metroTextBox1.Text);
+            MessageBox.Show($"Set shot delay to {Settings.shotDelay} successfully!", "Success!");
         }
 
         private void metroTrackBar1_ValueChanged(object sender, EventArgs e)
