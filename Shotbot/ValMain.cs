@@ -6,6 +6,8 @@ using System.Linq;
 using System.IO;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Drawing;
+using System.ComponentModel;
 
 namespace Shotbot
 {
@@ -40,17 +42,34 @@ namespace Shotbot
                     metroTextBox1.Text = Convert.ToString(Settings.shotDelay);
                     Settings.shotSpeed = Convert.ToInt32(o1["ShotSpeed"]);
                     delayTextBox.Text = Convert.ToString(Settings.shotSpeed);
-                    Settings.chosenColor = Convert.ToInt32(o1["ChosenColor"]);
 
-                    Settings.colorMultiplier = Convert.ToInt32(o1["ColorSens"]);
-                    if(Settings.colorMultiplier == 0)
+                    Settings.outlineThreshold = Convert.ToInt32(o1["OutlineThreshold"]);
+                    thresholdBox.Text = Convert.ToString(Settings.outlineThreshold);
+
+                    try
                     {
-                        Settings.colorMultiplier = 1;
+                        int[] overlayInts = Misc.ColorStuff.ConvertColor(o1["OverlayColor"].ToString());
+                        Settings.overlayColor = Color.FromArgb(overlayInts[0], overlayInts[1], overlayInts[2], overlayInts[3]);
+                        overlayColorButton.BackColor = Settings.overlayColor;
                     }
-                    metroTrackBar2.Value = Settings.colorMultiplier;
-                    multLabel.Text = $"Color sensitivity multiplier: {Settings.colorMultiplier}x";
+                    catch
+                    {
+                        Settings.overlayColor = Color.FromArgb(255, 255, 255, 255);
+                        overlayColorButton.BackColor = Settings.overlayColor;
+                    }
 
-                    overlayColorButton.BackColor = Settings.overlayColor;
+                    try
+                    {
+                        int[] outlineInts = Misc.ColorStuff.ConvertColor(o1["OutlineColor"].ToString());
+                        Settings.outlineColor = Color.FromArgb(outlineInts[0], outlineInts[1], outlineInts[2], outlineInts[3]);
+                        colorPreview.BackColor = Settings.outlineColor;
+                    }
+                    catch
+                    {
+                        Settings.outlineColor = Color.FromArgb(255, 175, 46, 175);
+                        colorPreview.BackColor = Settings.outlineColor;
+                    }
+
                     try
                     {
                     Keys key = (Keys)Enum.Parse(typeof(Keys), Convert.ToString(o1["KeyBind"]), true);
@@ -62,22 +81,6 @@ namespace Shotbot
                         Keys key = Keys.Alt;
                         Settings.enableTriggerbotKeybind = key;
                         triggerbotKeybindButton.Text = $"Keybind: Alt";
-                    }
-                   
-                    switch (Settings.chosenColor)
-                    {
-                        case 1:
-                            redRadioButton.Checked = true;
-                            break;
-                        case 2:
-                            purpleRadioButton.Checked = true;
-                            break;
-                        case 3:
-                            yellowRadioButton.Checked = true;
-                            break;
-                        default:
-                            redRadioButton.Checked = true;
-                            break;
                     }
                 }
             }
@@ -129,21 +132,6 @@ namespace Shotbot
             xPixelsLabel.Text = "Pixels: " + pixelTrackBar.Value.ToString();
             Settings.xPixels = pixelTrackBar.Value;
             Settings.yPixels = pixelTrackBar.Value;
-        }
-
-        private void redRadioButton_CheckedChanged(object sender, EventArgs e)
-        {
-            Settings.chosenColor = 1;
-        }
-
-        private void purpleRadioButton_CheckedChanged(object sender, EventArgs e)
-        {
-            Settings.chosenColor = 2;
-        }
-
-        private void yellowRadioButton_CheckedChanged(object sender, EventArgs e)
-        {
-            Settings.chosenColor = 3;
         }
 
         private void audioCheckBox_CheckedChanged(object sender, EventArgs e)
@@ -229,15 +217,75 @@ namespace Shotbot
         {
             if (overlayColorDialogue.ShowDialog() == DialogResult.OK)
             {
-                Settings.overlayColor = overlayColorDialogue.Color;
+                Settings.overlayColor = Color.FromArgb(overlayColorDialogue.Color.A, overlayColorDialogue.Color.R, overlayColorDialogue.Color.G, overlayColorDialogue.Color.B);
                 overlayColorButton.BackColor = overlayColorDialogue.Color;
             }
         }
 
-        private void metroTrackBar2_ValueChanged(object sender, EventArgs e)
+        private void thresholdBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            multLabel.Text = $"Color sensitivity multiplier: {metroTrackBar2.Value}x";
-            Settings.colorMultiplier = metroTrackBar2.Value;
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void setColorSettings_Click(object sender, EventArgs e)
+        {
+            Settings.outlineThreshold = Convert.ToInt32(thresholdBox.Text.ToString());
+            Settings.outlineColor = colorPreview.BackColor;
+
+            MessageBox.Show("Set settings successfully!");
+        }
+
+        private void saveColor_Click(object sender, EventArgs e)
+        {
+            //from json file
+            bool tried = Misc.ConfigSaving.SaveColorConfig();
+
+            if (tried)
+            {
+                MessageBox.Show("Created config successfully!");
+            }
+            else
+            {
+                MessageBox.Show("Unable to create config!");
+            }
+        }
+
+        private void loadColor_Click(object sender, EventArgs e)
+        {
+            //from json file
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+
+            openFileDialog1.InitialDirectory = AppContext.BaseDirectory + @"\Configs\";
+            openFileDialog1.Filter = "Json files (*.json)|*.json";
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                string selectedFileName = openFileDialog1.FileName;
+                bool tried = Misc.ConfigSaving.LoadColorConfig(selectedFileName);
+
+                if (!tried)
+                {
+                    MessageBox.Show("Unable to load config!");
+                }
+                else
+                {
+                    thresholdBox.Text = Convert.ToString(Settings.outlineThreshold);
+                    colorPreview.BackColor = Settings.outlineColor;
+                }
+            }
+
+        }
+
+        private void chooseOutlineColor_Click(object sender, EventArgs e)
+        {
+            if (overlayColorDialogue.ShowDialog() == DialogResult.OK)
+            {
+                Settings.outlineColor = Color.FromArgb(overlayColorDialogue.Color.A, overlayColorDialogue.Color.R, overlayColorDialogue.Color.G, overlayColorDialogue.Color.B);
+                colorPreview.BackColor = overlayColorDialogue.Color;
+            }
         }
     }
 }

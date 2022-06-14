@@ -247,6 +247,7 @@
     <Compile Include="Loader.Designer.cs">
       <DependentUpon>Loader.cs</DependentUpon>
     </Compile>
+    <Compile Include="Misc\ColorStuff.cs" />
     <Compile Include="Misc\ConfigSaving.cs" />
     <Compile Include="Overlay.cs">
       <SubType>Form</SubType>

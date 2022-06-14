@@ -15,12 +15,12 @@ namespace Shotbot
         public static int shotSpeed = 100; //miliseconds
         public static int shotDelay = 75; //miliseconds
         public static Keys enableTriggerbotKeybind = Keys.Alt;
-        public static int chosenColor = 1;
         public static DateTime expiration { get; set; }
-        public static string version = "1.22";
+        public static string version = "1.3a";
 
         public static Color overlayColor = Color.FromArgb(255,255,255,0);
 
-        public static int colorMultiplier = 1;
+        public static int outlineThreshold = 0;
+        public static Color outlineColor = Color.FromArgb(255, 175, 46, 175);
     }
 }

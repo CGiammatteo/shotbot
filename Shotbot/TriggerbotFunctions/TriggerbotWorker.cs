@@ -26,34 +26,11 @@ namespace Shotbot.TriggerbotFunctions
                             Color col = bmp.GetPixel(x, y);
                             int rand = r.Next(Settings.shotSpeed, Settings.shotSpeed + r.Next(1, 10));
 
-                            if (Settings.chosenColor == 1)
+                            if (ColorFuncs.CompareOutline(col) && hasShot == false)
                             {
-                                if (ColorFuncs.CompareRed(col) && hasShot == false)
-                                {
-                                    hasShot = true;
-                                    MouseFuncs.ShootGun();
-                                    Thread.Sleep(rand);
-                                }
-                            }
-
-                            if (Settings.chosenColor == 2)
-                            {
-                                if (ColorFuncs.ComparePurple(col) && hasShot == false)
-                                {
-                                    hasShot = true;
-                                    MouseFuncs.ShootGun();
-                                    Thread.Sleep(rand);
-                                }
-                            }
-
-                            if (Settings.chosenColor == 3)
-                            {
-                                if (ColorFuncs.CompareYellow(col) && hasShot == false)
-                                {
-                                    hasShot = true;
-                                    MouseFuncs.ShootGun();
-                                    Thread.Sleep(rand);
-                                }
+                                hasShot = true;
+                                MouseFuncs.ShootGun();
+                                Thread.Sleep(rand);
                             }
                         }
                     }

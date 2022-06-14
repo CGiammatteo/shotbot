@@ -155,8 +155,9 @@ namespace Shotbot.Whitelisting
                         new JProperty("Audio", Settings.audio),
                         new JProperty("ShotDelay", Settings.shotDelay),
                         new JProperty("ShotSpeed", Settings.shotSpeed),
-                        new JProperty("ChosenColor", Settings.chosenColor));
-                        new JProperty("ColorSens", Settings.colorMultiplier);
+                        new JProperty("OverlayColor", Settings.overlayColor.ToString()),
+                        new JProperty("OutlineColor", Settings.outlineColor.ToString()),
+                        new JProperty("Threashold", Settings.outlineThreshold));
 
                     serializer.Serialize(file, configData);
                 }
