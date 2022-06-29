@@ -20,13 +20,13 @@ namespace Shotbot
         {
             this.Text = RandomString(random.Next(10, 20));
             WebClient wc = new WebClient();
-            string ver = wc.DownloadString("http://34.230.44.28/shotbot/Version");
+            string ver = wc.DownloadString("http://52.90.104.118/shotbot/Version");
             if (ver != Settings.version)
             {
                 MessageBox.Show("An update is available! Downloading now...", "Shotbot update");
                 //update
                 File.Move(AppDomain.CurrentDomain.FriendlyName, "Old.exe");
-                wc.DownloadFile("http://34.230.44.28/shotbot/Shotbot.exe", "Shotbot.exe");
+                wc.DownloadFile("http://52.90.104.118/shotbot/Shotbot.exe", "Shotbot.exe");
                 Process.Start(@"Shotbot.exe");
                 Application.Exit();
             }

@@ -11,7 +11,7 @@ namespace Shotbot.Whitelisting
     internal class Auth
     {
 
-        private static string cs = "Host=34.230.44.28;Username=postgres;Password=Password123!;Database=postgres"; //Host=db.bit.io;Username=cgiammatteo112;Password=3q5u4_Ycgj4EDtZd7r6bE88WtAePd;Database=cgiammatteo112
+        private static string cs = "Host=52.90.104.118;Username=postgres;Password=Password123!;Database=postgres"; //Host=db.bit.io;Username=cgiammatteo112;Password=3q5u4_Ycgj4EDtZd7r6bE88WtAePd;Database=cgiammatteo112
 
         private static NpgsqlConnection connection = new NpgsqlConnection(cs);
 
