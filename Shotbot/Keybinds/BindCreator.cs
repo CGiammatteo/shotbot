@@ -14,7 +14,7 @@ namespace Shotbot.Keybinds
         [DllImport("user32.dll")]
         private static extern short GetAsyncKeyState(int vKey);
 
-        public static string SetBind()
+        public static string SetBind(int bindType)
         {
             bool found = false;
             Keys foundKey = Keys.None;
@@ -31,7 +31,7 @@ namespace Shotbot.Keybinds
                         foundKey = (Keys)Enum.Parse(typeof(Keys), keyName, true);
                         found = true;
                         
-                        DialogResult dResult = MessageBox.Show($"Are you sure you would like to set the triggerbot's keybind to {foundKey}?", "Keybind", MessageBoxButtons.YesNo);
+                        DialogResult dResult = MessageBox.Show($"Are you sure you would like to set the keybind to {foundKey}?", "Keybind", MessageBoxButtons.YesNo);
 
                         if (dResult == DialogResult.Yes)
                         {
@@ -43,7 +43,11 @@ namespace Shotbot.Keybinds
                             {
                                 final = keyName;
 
-                                Settings.enableTriggerbotKeybind = foundKey;
+                                if(bindType == 0)
+                                    Settings.enableTriggerbotKeybind = foundKey;
+
+                                if(bindType == 1)
+                                    Settings.flankKeybind = foundKey;
                             }
                         }
                     }

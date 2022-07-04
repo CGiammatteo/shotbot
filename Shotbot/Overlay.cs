@@ -79,7 +79,8 @@ namespace Shotbot
             Pen pen = new Pen(brush);
 
             e.Graphics.DrawString($"Shotbot [V{Settings.version}]", drawingFont, brush, Screen.PrimaryScreen.Bounds.X + 50, Screen.PrimaryScreen.Bounds.Y + 50);
-            e.Graphics.DrawRectangle(pen, 45, 47, 220, 30);
+            e.Graphics.DrawString($"Triggerbot: {Convert.ToString(Settings.enabled)}", drawingFont, brush, Screen.PrimaryScreen.Bounds.X + 50, Screen.PrimaryScreen.Bounds.Y + 70);
+            e.Graphics.DrawString($"Flank watch: {Convert.ToString(Settings.flankEnabled)}", drawingFont, brush, Screen.PrimaryScreen.Bounds.X + 50, Screen.PrimaryScreen.Bounds.Y + 90);
 
             Rectangle rectMid = new Rectangle(Settings.monitor.Bounds.Width / 2 - (Settings.xPixels / 2), Settings.monitor.Bounds.Height / 2 - (Settings.xPixels / 2), Settings.xPixels, Settings.yPixels);
             e.Graphics.DrawRectangle(pen, rectMid);

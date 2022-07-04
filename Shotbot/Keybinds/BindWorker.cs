@@ -30,6 +30,12 @@ namespace Shotbot.Keybinds
                     }
                 }
 
+                if ((GetAsyncKeyState(Settings.flankKeybind) & 0x8000) > 0)
+                {
+                    Settings.flankEnabled = !Settings.flankEnabled;
+                    Thread.Sleep(250);
+                }
+
                 Thread.Sleep(1);
             }
         }

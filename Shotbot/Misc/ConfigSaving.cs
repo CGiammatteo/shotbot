@@ -32,6 +32,7 @@ namespace Shotbot.Misc
                 o1["ShotDelay"] = Settings.shotDelay;
                 o1["ShotSpeed"] = Settings.shotSpeed;
                 o1["KeyBind"] = kt.ConvertToString(Settings.enableTriggerbotKeybind);
+                o1["FlankBind"] = kt.ConvertToString(Settings.flankKeybind);
                 o1["OverlayColor"] = Settings.overlayColor.ToString();
 
                 o1["OutlineThreshold"] = Settings.outlineThreshold;

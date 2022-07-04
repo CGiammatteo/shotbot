@@ -46,6 +46,14 @@
             this.delayTextBox = new MetroFramework.Controls.MetroTextBox();
             this.shotDelayLabel = new MetroFramework.Controls.MetroLabel();
             this.triggerbotKeybindButton = new MetroFramework.Controls.MetroButton();
+            this.metroTabPage4 = new MetroFramework.Controls.MetroTabPage();
+            this.colorPreview = new System.Windows.Forms.Button();
+            this.loadColor = new MetroFramework.Controls.MetroButton();
+            this.saveColor = new MetroFramework.Controls.MetroButton();
+            this.thresholdBox = new MetroFramework.Controls.MetroTextBox();
+            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
+            this.setColorSettings = new MetroFramework.Controls.MetroButton();
+            this.chooseOutlineColor = new MetroFramework.Controls.MetroButton();
             this.metroTabPage3 = new MetroFramework.Controls.MetroTabPage();
             this.audioCheckBox = new MetroFramework.Controls.MetroCheckBox();
             this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
@@ -53,22 +61,16 @@
             this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
             this.topmostCheckBox = new MetroFramework.Controls.MetroCheckBox();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
-            this.metroTabPage4 = new MetroFramework.Controls.MetroTabPage();
             this.expirationLabel = new MetroFramework.Controls.MetroLabel();
             this.overlayColorDialogue = new System.Windows.Forms.ColorDialog();
-            this.chooseOutlineColor = new MetroFramework.Controls.MetroButton();
-            this.setColorSettings = new MetroFramework.Controls.MetroButton();
-            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
-            this.thresholdBox = new MetroFramework.Controls.MetroTextBox();
-            this.saveColor = new MetroFramework.Controls.MetroButton();
-            this.loadColor = new MetroFramework.Controls.MetroButton();
-            this.colorPreview = new System.Windows.Forms.Button();
+            this.flankBindButton = new MetroFramework.Controls.MetroButton();
+            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
             this.metroTabControl1.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
             this.metroTabPage2.SuspendLayout();
-            this.metroTabPage3.SuspendLayout();
             this.metroTabPage4.SuspendLayout();
+            this.metroTabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // metroStyleManager1
@@ -80,12 +82,12 @@
             // metroTabControl1
             // 
             this.metroTabControl1.Controls.Add(this.metroTabPage1);
-            this.metroTabControl1.Controls.Add(this.metroTabPage2);
             this.metroTabControl1.Controls.Add(this.metroTabPage4);
+            this.metroTabControl1.Controls.Add(this.metroTabPage2);
             this.metroTabControl1.Controls.Add(this.metroTabPage3);
             this.metroTabControl1.Location = new System.Drawing.Point(23, 63);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 2;
+            this.metroTabControl1.SelectedIndex = 1;
             this.metroTabControl1.Size = new System.Drawing.Size(300, 294);
             this.metroTabControl1.TabIndex = 0;
             // 
@@ -155,6 +157,8 @@
             // 
             // metroTabPage2
             // 
+            this.metroTabPage2.Controls.Add(this.metroLabel1);
+            this.metroTabPage2.Controls.Add(this.flankBindButton);
             this.metroTabPage2.Controls.Add(this.metroButton1);
             this.metroTabPage2.Controls.Add(this.metroTextBox1);
             this.metroTabPage2.Controls.Add(this.metroLabel3);
@@ -232,6 +236,84 @@
             this.triggerbotKeybindButton.TabIndex = 7;
             this.triggerbotKeybindButton.Text = "Keybind: None";
             this.triggerbotKeybindButton.Click += new System.EventHandler(this.triggerbotKeybindButton_Click);
+            // 
+            // metroTabPage4
+            // 
+            this.metroTabPage4.Controls.Add(this.colorPreview);
+            this.metroTabPage4.Controls.Add(this.loadColor);
+            this.metroTabPage4.Controls.Add(this.saveColor);
+            this.metroTabPage4.Controls.Add(this.thresholdBox);
+            this.metroTabPage4.Controls.Add(this.metroLabel2);
+            this.metroTabPage4.Controls.Add(this.setColorSettings);
+            this.metroTabPage4.Controls.Add(this.chooseOutlineColor);
+            this.metroTabPage4.HorizontalScrollbarBarColor = true;
+            this.metroTabPage4.Location = new System.Drawing.Point(4, 35);
+            this.metroTabPage4.Name = "metroTabPage4";
+            this.metroTabPage4.Size = new System.Drawing.Size(292, 255);
+            this.metroTabPage4.TabIndex = 3;
+            this.metroTabPage4.Text = "Outlines";
+            this.metroTabPage4.VerticalScrollbarBarColor = true;
+            // 
+            // colorPreview
+            // 
+            this.colorPreview.Location = new System.Drawing.Point(249, 13);
+            this.colorPreview.Name = "colorPreview";
+            this.colorPreview.Size = new System.Drawing.Size(43, 23);
+            this.colorPreview.TabIndex = 9;
+            this.colorPreview.UseVisualStyleBackColor = true;
+            // 
+            // loadColor
+            // 
+            this.loadColor.Location = new System.Drawing.Point(224, 92);
+            this.loadColor.Name = "loadColor";
+            this.loadColor.Size = new System.Drawing.Size(68, 23);
+            this.loadColor.TabIndex = 8;
+            this.loadColor.Text = "Load";
+            this.loadColor.Click += new System.EventHandler(this.loadColor_Click);
+            // 
+            // saveColor
+            // 
+            this.saveColor.Location = new System.Drawing.Point(148, 92);
+            this.saveColor.Name = "saveColor";
+            this.saveColor.Size = new System.Drawing.Size(70, 23);
+            this.saveColor.TabIndex = 7;
+            this.saveColor.Text = "Save";
+            this.saveColor.Click += new System.EventHandler(this.saveColor_Click);
+            // 
+            // thresholdBox
+            // 
+            this.thresholdBox.Location = new System.Drawing.Point(3, 63);
+            this.thresholdBox.Name = "thresholdBox";
+            this.thresholdBox.Size = new System.Drawing.Size(289, 23);
+            this.thresholdBox.TabIndex = 6;
+            this.thresholdBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.thresholdBox_KeyPress);
+            // 
+            // metroLabel2
+            // 
+            this.metroLabel2.AutoSize = true;
+            this.metroLabel2.Location = new System.Drawing.Point(3, 41);
+            this.metroLabel2.Name = "metroLabel2";
+            this.metroLabel2.Size = new System.Drawing.Size(69, 19);
+            this.metroLabel2.TabIndex = 5;
+            this.metroLabel2.Text = "Threshold:";
+            // 
+            // setColorSettings
+            // 
+            this.setColorSettings.Location = new System.Drawing.Point(3, 92);
+            this.setColorSettings.Name = "setColorSettings";
+            this.setColorSettings.Size = new System.Drawing.Size(139, 23);
+            this.setColorSettings.TabIndex = 4;
+            this.setColorSettings.Text = "Set color settings";
+            this.setColorSettings.Click += new System.EventHandler(this.setColorSettings_Click);
+            // 
+            // chooseOutlineColor
+            // 
+            this.chooseOutlineColor.Location = new System.Drawing.Point(3, 13);
+            this.chooseOutlineColor.Name = "chooseOutlineColor";
+            this.chooseOutlineColor.Size = new System.Drawing.Size(240, 23);
+            this.chooseOutlineColor.TabIndex = 2;
+            this.chooseOutlineColor.Text = "Choose color";
+            this.chooseOutlineColor.Click += new System.EventHandler(this.chooseOutlineColor_Click);
             // 
             // metroTabPage3
             // 
@@ -312,23 +394,6 @@
             this.metroLabel5.TabIndex = 2;
             this.metroLabel5.Text = "Top most:";
             // 
-            // metroTabPage4
-            // 
-            this.metroTabPage4.Controls.Add(this.colorPreview);
-            this.metroTabPage4.Controls.Add(this.loadColor);
-            this.metroTabPage4.Controls.Add(this.saveColor);
-            this.metroTabPage4.Controls.Add(this.thresholdBox);
-            this.metroTabPage4.Controls.Add(this.metroLabel2);
-            this.metroTabPage4.Controls.Add(this.setColorSettings);
-            this.metroTabPage4.Controls.Add(this.chooseOutlineColor);
-            this.metroTabPage4.HorizontalScrollbarBarColor = true;
-            this.metroTabPage4.Location = new System.Drawing.Point(4, 35);
-            this.metroTabPage4.Name = "metroTabPage4";
-            this.metroTabPage4.Size = new System.Drawing.Size(292, 255);
-            this.metroTabPage4.TabIndex = 3;
-            this.metroTabPage4.Text = "Outlines";
-            this.metroTabPage4.VerticalScrollbarBarColor = true;
-            // 
             // expirationLabel
             // 
             this.expirationLabel.AutoSize = true;
@@ -338,66 +403,23 @@
             this.expirationLabel.TabIndex = 1;
             this.expirationLabel.Text = "license expiration";
             // 
-            // chooseOutlineColor
+            // flankBindButton
             // 
-            this.chooseOutlineColor.Location = new System.Drawing.Point(3, 13);
-            this.chooseOutlineColor.Name = "chooseOutlineColor";
-            this.chooseOutlineColor.Size = new System.Drawing.Size(240, 23);
-            this.chooseOutlineColor.TabIndex = 2;
-            this.chooseOutlineColor.Text = "Choose color";
-            this.chooseOutlineColor.Click += new System.EventHandler(this.chooseOutlineColor_Click);
+            this.flankBindButton.Location = new System.Drawing.Point(3, 183);
+            this.flankBindButton.Name = "flankBindButton";
+            this.flankBindButton.Size = new System.Drawing.Size(286, 23);
+            this.flankBindButton.TabIndex = 15;
+            this.flankBindButton.Text = "Keybind: None";
+            this.flankBindButton.Click += new System.EventHandler(this.flankBindButton_Click);
             // 
-            // setColorSettings
+            // metroLabel1
             // 
-            this.setColorSettings.Location = new System.Drawing.Point(3, 92);
-            this.setColorSettings.Name = "setColorSettings";
-            this.setColorSettings.Size = new System.Drawing.Size(139, 23);
-            this.setColorSettings.TabIndex = 4;
-            this.setColorSettings.Text = "Set color settings";
-            this.setColorSettings.Click += new System.EventHandler(this.setColorSettings_Click);
-            // 
-            // metroLabel2
-            // 
-            this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(3, 41);
-            this.metroLabel2.Name = "metroLabel2";
-            this.metroLabel2.Size = new System.Drawing.Size(69, 19);
-            this.metroLabel2.TabIndex = 5;
-            this.metroLabel2.Text = "Threshold:";
-            // 
-            // thresholdBox
-            // 
-            this.thresholdBox.Location = new System.Drawing.Point(3, 63);
-            this.thresholdBox.Name = "thresholdBox";
-            this.thresholdBox.Size = new System.Drawing.Size(289, 23);
-            this.thresholdBox.TabIndex = 6;
-            this.thresholdBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.thresholdBox_KeyPress);
-            // 
-            // saveColor
-            // 
-            this.saveColor.Location = new System.Drawing.Point(148, 92);
-            this.saveColor.Name = "saveColor";
-            this.saveColor.Size = new System.Drawing.Size(70, 23);
-            this.saveColor.TabIndex = 7;
-            this.saveColor.Text = "Save";
-            this.saveColor.Click += new System.EventHandler(this.saveColor_Click);
-            // 
-            // loadColor
-            // 
-            this.loadColor.Location = new System.Drawing.Point(224, 92);
-            this.loadColor.Name = "loadColor";
-            this.loadColor.Size = new System.Drawing.Size(68, 23);
-            this.loadColor.TabIndex = 8;
-            this.loadColor.Text = "Load";
-            this.loadColor.Click += new System.EventHandler(this.loadColor_Click);
-            // 
-            // colorPreview
-            // 
-            this.colorPreview.Location = new System.Drawing.Point(249, 13);
-            this.colorPreview.Name = "colorPreview";
-            this.colorPreview.Size = new System.Drawing.Size(43, 23);
-            this.colorPreview.TabIndex = 9;
-            this.colorPreview.UseVisualStyleBackColor = true;
+            this.metroLabel1.AutoSize = true;
+            this.metroLabel1.Location = new System.Drawing.Point(3, 161);
+            this.metroLabel1.Name = "metroLabel1";
+            this.metroLabel1.Size = new System.Drawing.Size(70, 19);
+            this.metroLabel1.TabIndex = 16;
+            this.metroLabel1.Text = "Flank shot:";
             // 
             // ValMain
             // 
@@ -423,10 +445,10 @@
             this.metroTabPage1.PerformLayout();
             this.metroTabPage2.ResumeLayout(false);
             this.metroTabPage2.PerformLayout();
-            this.metroTabPage3.ResumeLayout(false);
-            this.metroTabPage3.PerformLayout();
             this.metroTabPage4.ResumeLayout(false);
             this.metroTabPage4.PerformLayout();
+            this.metroTabPage3.ResumeLayout(false);
+            this.metroTabPage3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -467,5 +489,7 @@
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroButton setColorSettings;
         private MetroFramework.Controls.MetroButton chooseOutlineColor;
+        private MetroFramework.Controls.MetroLabel metroLabel1;
+        private MetroFramework.Controls.MetroButton flankBindButton;
     }
 }

@@ -75,12 +75,19 @@ namespace Shotbot
                     Keys key = (Keys)Enum.Parse(typeof(Keys), Convert.ToString(o1["KeyBind"]), true);
                         Settings.enableTriggerbotKeybind = key;
                         triggerbotKeybindButton.Text = $"Keybind: {o1["KeyBind"]}";
+
+                    Keys key2 = (Keys)Enum.Parse(typeof(Keys), Convert.ToString(o1["FlankBind"]), true);
+                        Settings.flankKeybind = key;
+                        flankBindButton.Text = $"Keybind: {o1["FlankBind"]}";
                     }
                     catch
                     {
-                        Keys key = Keys.Alt;
+                        Keys key = Keys.None;
                         Settings.enableTriggerbotKeybind = key;
-                        triggerbotKeybindButton.Text = $"Keybind: Alt";
+                        triggerbotKeybindButton.Text = $"Keybind: None";
+
+                        Settings.flankKeybind = key;
+                        flankBindButton.Text = $"Keybind: None";
                     }
                 }
             }
@@ -155,7 +162,7 @@ namespace Shotbot
 
         private void triggerbotKeybindButton_Click(object sender, EventArgs e)
         {
-            string bindName = Keybinds.BindCreator.SetBind();
+            string bindName = Keybinds.BindCreator.SetBind(0);
             if (bindName != "None")
             {
                 triggerbotKeybindButton.Text = $"Keybind: {bindName}";
@@ -285,6 +292,15 @@ namespace Shotbot
             {
                 Settings.outlineColor = Color.FromArgb(overlayColorDialogue.Color.A, overlayColorDialogue.Color.R, overlayColorDialogue.Color.G, overlayColorDialogue.Color.B);
                 colorPreview.BackColor = overlayColorDialogue.Color;
+            }
+        }
+
+        private void flankBindButton_Click(object sender, EventArgs e)
+        {
+            string bindName = Keybinds.BindCreator.SetBind(1);
+            if (bindName != "None")
+            {
+                flankBindButton.Text = $"Keybind: {bindName}";
             }
         }
     }

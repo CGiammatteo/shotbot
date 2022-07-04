@@ -1,11 +1,17 @@
 ﻿using System;
 using System.Drawing;
 using System.Threading;
+using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace Shotbot.TriggerbotFunctions
 {
+
     internal class TriggerbotWorker
     {
+        [DllImport("user32.dll")]
+        private static extern short GetAsyncKeyState(Keys vKey);
+
         private static Random r = new Random();
         private static Rectangle rect = new Rectangle(Settings.monitor.Bounds.Width / 2 - (Settings.xPixels / 2), Settings.monitor.Bounds.Height / 2 - (Settings.xPixels / 2), Settings.xPixels, Settings.yPixels);
         private static bool hasShot = false;
@@ -29,7 +35,11 @@ namespace Shotbot.TriggerbotFunctions
                             if (ColorFuncs.CompareOutline(col) && hasShot == false)
                             {
                                 hasShot = true;
-                                MouseFuncs.ShootGun();
+                                if(Settings.flankEnabled == true && GetAsyncKeyState(Keys.W) > 0 || GetAsyncKeyState(Keys.A) > 0 || GetAsyncKeyState(Keys.S) > 0 || GetAsyncKeyState(Keys.D) > 0)
+                                    MouseFuncs.ShootGun();
+
+                                if (Settings.flankEnabled == false)
+                                    MouseFuncs.ShootGun();
                                 Thread.Sleep(rand);
                             }
                         }
