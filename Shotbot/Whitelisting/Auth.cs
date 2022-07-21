@@ -67,6 +67,34 @@ namespace Shotbot.Whitelisting
             return isWhitelisted;
         }
 
+        public static bool IsLinked(string key)
+        {
+            connection.Open();
+            var sql = "SELECT * FROM shotbot";
+            var cmd = new NpgsqlCommand(sql, connection);
+
+            NpgsqlDataReader reader = cmd.ExecuteReader();
+            DataTable schemaTable = reader.GetSchemaTable();
+            while (reader.Read())
+            {
+                for (int colNum = 0; colNum < reader.FieldCount; colNum++)
+                {
+                    if (reader.GetName(colNum) == "key" && Convert.ToString(reader[colNum]) == key)
+                    {
+                        if (Convert.ToString(reader[colNum + 4]) == "")
+                        {
+                            connection.Close();
+                            return false;
+                            
+                        }
+                    }
+                }
+
+            }
+            connection.Close();
+            return true;
+
+        }
         public static bool WhitelistUser(string key)
         {
             bool success = false;

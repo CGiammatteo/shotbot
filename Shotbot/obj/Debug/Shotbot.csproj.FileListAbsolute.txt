@@ -55,3 +55,4 @@ C:\Users\Gostr\Documents\GitHub\shotbot\Shotbot\obj\Debug\Shotbot.csproj.Fody.Co
 C:\Users\Gostr\Documents\GitHub\shotbot\Shotbot\obj\Debug\Shotbot.csproj.CopyComplete
 C:\Users\Gostr\Documents\GitHub\shotbot\Shotbot\obj\Debug\Shotbot.exe
 C:\Users\Gostr\Documents\GitHub\shotbot\Shotbot\obj\Debug\Shotbot.pdb
+C:\Users\black\Documents\GitHub\shotbot\Shotbot\obj\Debug\Shotbot.Overlay.resources

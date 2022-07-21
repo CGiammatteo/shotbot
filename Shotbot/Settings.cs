@@ -16,7 +16,7 @@ namespace Shotbot
         public static int shotDelay = 75; //miliseconds
         public static Keys enableTriggerbotKeybind = Keys.Alt;
         public static DateTime expiration { get; set; }
-        public static string version = "1.4";
+        public static string version = "1.41";
 
         public static Color overlayColor = Color.FromArgb(255,255,255,0);
 

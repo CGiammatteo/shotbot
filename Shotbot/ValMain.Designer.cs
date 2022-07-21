@@ -38,14 +38,6 @@
             this.metroTrackBar1 = new MetroFramework.Controls.MetroTrackBar();
             this.pixelTrackBar = new MetroFramework.Controls.MetroTrackBar();
             this.xPixelsLabel = new MetroFramework.Controls.MetroLabel();
-            this.metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
-            this.metroButton1 = new MetroFramework.Controls.MetroButton();
-            this.metroTextBox1 = new MetroFramework.Controls.MetroTextBox();
-            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
-            this.delaySetButton = new MetroFramework.Controls.MetroButton();
-            this.delayTextBox = new MetroFramework.Controls.MetroTextBox();
-            this.shotDelayLabel = new MetroFramework.Controls.MetroLabel();
-            this.triggerbotKeybindButton = new MetroFramework.Controls.MetroButton();
             this.metroTabPage4 = new MetroFramework.Controls.MetroTabPage();
             this.colorPreview = new System.Windows.Forms.Button();
             this.loadColor = new MetroFramework.Controls.MetroButton();
@@ -54,6 +46,16 @@
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.setColorSettings = new MetroFramework.Controls.MetroButton();
             this.chooseOutlineColor = new MetroFramework.Controls.MetroButton();
+            this.metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
+            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.flankBindButton = new MetroFramework.Controls.MetroButton();
+            this.metroButton1 = new MetroFramework.Controls.MetroButton();
+            this.metroTextBox1 = new MetroFramework.Controls.MetroTextBox();
+            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
+            this.delaySetButton = new MetroFramework.Controls.MetroButton();
+            this.delayTextBox = new MetroFramework.Controls.MetroTextBox();
+            this.shotDelayLabel = new MetroFramework.Controls.MetroLabel();
+            this.triggerbotKeybindButton = new MetroFramework.Controls.MetroButton();
             this.metroTabPage3 = new MetroFramework.Controls.MetroTabPage();
             this.audioCheckBox = new MetroFramework.Controls.MetroCheckBox();
             this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
@@ -63,13 +65,12 @@
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.expirationLabel = new MetroFramework.Controls.MetroLabel();
             this.overlayColorDialogue = new System.Windows.Forms.ColorDialog();
-            this.flankBindButton = new MetroFramework.Controls.MetroButton();
-            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.DiscordLinkAlert = new MetroFramework.Controls.MetroLabel();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
             this.metroTabControl1.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
-            this.metroTabPage2.SuspendLayout();
             this.metroTabPage4.SuspendLayout();
+            this.metroTabPage2.SuspendLayout();
             this.metroTabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -155,90 +156,9 @@
             this.xPixelsLabel.TabIndex = 4;
             this.xPixelsLabel.Text = "Pixels: 10x10";
             // 
-            // metroTabPage2
-            // 
-            this.metroTabPage2.Controls.Add(this.metroLabel1);
-            this.metroTabPage2.Controls.Add(this.flankBindButton);
-            this.metroTabPage2.Controls.Add(this.metroButton1);
-            this.metroTabPage2.Controls.Add(this.metroTextBox1);
-            this.metroTabPage2.Controls.Add(this.metroLabel3);
-            this.metroTabPage2.Controls.Add(this.delaySetButton);
-            this.metroTabPage2.Controls.Add(this.delayTextBox);
-            this.metroTabPage2.Controls.Add(this.shotDelayLabel);
-            this.metroTabPage2.Controls.Add(this.triggerbotKeybindButton);
-            this.metroTabPage2.HorizontalScrollbarBarColor = true;
-            this.metroTabPage2.Location = new System.Drawing.Point(4, 35);
-            this.metroTabPage2.Name = "metroTabPage2";
-            this.metroTabPage2.Size = new System.Drawing.Size(292, 255);
-            this.metroTabPage2.TabIndex = 1;
-            this.metroTabPage2.Text = "Basic settings";
-            this.metroTabPage2.VerticalScrollbarBarColor = true;
-            // 
-            // metroButton1
-            // 
-            this.metroButton1.Location = new System.Drawing.Point(113, 98);
-            this.metroButton1.Name = "metroButton1";
-            this.metroButton1.Size = new System.Drawing.Size(176, 23);
-            this.metroButton1.TabIndex = 14;
-            this.metroButton1.Text = "Set delay";
-            this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
-            // 
-            // metroTextBox1
-            // 
-            this.metroTextBox1.Location = new System.Drawing.Point(113, 69);
-            this.metroTextBox1.Name = "metroTextBox1";
-            this.metroTextBox1.Size = new System.Drawing.Size(176, 23);
-            this.metroTextBox1.TabIndex = 13;
-            this.metroTextBox1.Text = "75";
-            this.metroTextBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.metroTextBox1_KeyPress);
-            // 
-            // metroLabel3
-            // 
-            this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(3, 69);
-            this.metroLabel3.Name = "metroLabel3";
-            this.metroLabel3.Size = new System.Drawing.Size(104, 19);
-            this.metroLabel3.TabIndex = 12;
-            this.metroLabel3.Text = "Shot delay (MS):";
-            // 
-            // delaySetButton
-            // 
-            this.delaySetButton.Location = new System.Drawing.Point(113, 40);
-            this.delaySetButton.Name = "delaySetButton";
-            this.delaySetButton.Size = new System.Drawing.Size(176, 23);
-            this.delaySetButton.TabIndex = 11;
-            this.delaySetButton.Text = "Set speed";
-            this.delaySetButton.Click += new System.EventHandler(this.delaySetButton_Click);
-            // 
-            // delayTextBox
-            // 
-            this.delayTextBox.Location = new System.Drawing.Point(113, 11);
-            this.delayTextBox.Name = "delayTextBox";
-            this.delayTextBox.Size = new System.Drawing.Size(176, 23);
-            this.delayTextBox.TabIndex = 10;
-            this.delayTextBox.Text = "100";
-            this.delayTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.delayTextBox_KeyPress);
-            // 
-            // shotDelayLabel
-            // 
-            this.shotDelayLabel.AutoSize = true;
-            this.shotDelayLabel.Location = new System.Drawing.Point(3, 11);
-            this.shotDelayLabel.Name = "shotDelayLabel";
-            this.shotDelayLabel.Size = new System.Drawing.Size(108, 19);
-            this.shotDelayLabel.TabIndex = 9;
-            this.shotDelayLabel.Text = "Shot speed (MS):";
-            // 
-            // triggerbotKeybindButton
-            // 
-            this.triggerbotKeybindButton.Location = new System.Drawing.Point(3, 127);
-            this.triggerbotKeybindButton.Name = "triggerbotKeybindButton";
-            this.triggerbotKeybindButton.Size = new System.Drawing.Size(286, 23);
-            this.triggerbotKeybindButton.TabIndex = 7;
-            this.triggerbotKeybindButton.Text = "Keybind: None";
-            this.triggerbotKeybindButton.Click += new System.EventHandler(this.triggerbotKeybindButton_Click);
-            // 
             // metroTabPage4
             // 
+            this.metroTabPage4.Controls.Add(this.DiscordLinkAlert);
             this.metroTabPage4.Controls.Add(this.colorPreview);
             this.metroTabPage4.Controls.Add(this.loadColor);
             this.metroTabPage4.Controls.Add(this.saveColor);
@@ -314,6 +234,106 @@
             this.chooseOutlineColor.TabIndex = 2;
             this.chooseOutlineColor.Text = "Choose color";
             this.chooseOutlineColor.Click += new System.EventHandler(this.chooseOutlineColor_Click);
+            // 
+            // metroTabPage2
+            // 
+            this.metroTabPage2.Controls.Add(this.metroLabel1);
+            this.metroTabPage2.Controls.Add(this.flankBindButton);
+            this.metroTabPage2.Controls.Add(this.metroButton1);
+            this.metroTabPage2.Controls.Add(this.metroTextBox1);
+            this.metroTabPage2.Controls.Add(this.metroLabel3);
+            this.metroTabPage2.Controls.Add(this.delaySetButton);
+            this.metroTabPage2.Controls.Add(this.delayTextBox);
+            this.metroTabPage2.Controls.Add(this.shotDelayLabel);
+            this.metroTabPage2.Controls.Add(this.triggerbotKeybindButton);
+            this.metroTabPage2.HorizontalScrollbarBarColor = true;
+            this.metroTabPage2.Location = new System.Drawing.Point(4, 35);
+            this.metroTabPage2.Name = "metroTabPage2";
+            this.metroTabPage2.Size = new System.Drawing.Size(292, 255);
+            this.metroTabPage2.TabIndex = 1;
+            this.metroTabPage2.Text = "Basic settings";
+            this.metroTabPage2.VerticalScrollbarBarColor = true;
+            // 
+            // metroLabel1
+            // 
+            this.metroLabel1.AutoSize = true;
+            this.metroLabel1.Location = new System.Drawing.Point(3, 161);
+            this.metroLabel1.Name = "metroLabel1";
+            this.metroLabel1.Size = new System.Drawing.Size(70, 19);
+            this.metroLabel1.TabIndex = 16;
+            this.metroLabel1.Text = "Flank shot:";
+            // 
+            // flankBindButton
+            // 
+            this.flankBindButton.Location = new System.Drawing.Point(3, 183);
+            this.flankBindButton.Name = "flankBindButton";
+            this.flankBindButton.Size = new System.Drawing.Size(286, 23);
+            this.flankBindButton.TabIndex = 15;
+            this.flankBindButton.Text = "Keybind: None";
+            this.flankBindButton.Click += new System.EventHandler(this.flankBindButton_Click);
+            // 
+            // metroButton1
+            // 
+            this.metroButton1.Location = new System.Drawing.Point(113, 98);
+            this.metroButton1.Name = "metroButton1";
+            this.metroButton1.Size = new System.Drawing.Size(176, 23);
+            this.metroButton1.TabIndex = 14;
+            this.metroButton1.Text = "Set delay";
+            this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
+            // 
+            // metroTextBox1
+            // 
+            this.metroTextBox1.Location = new System.Drawing.Point(113, 69);
+            this.metroTextBox1.Name = "metroTextBox1";
+            this.metroTextBox1.Size = new System.Drawing.Size(176, 23);
+            this.metroTextBox1.TabIndex = 13;
+            this.metroTextBox1.Text = "75";
+            this.metroTextBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.metroTextBox1_KeyPress);
+            // 
+            // metroLabel3
+            // 
+            this.metroLabel3.AutoSize = true;
+            this.metroLabel3.Location = new System.Drawing.Point(3, 69);
+            this.metroLabel3.Name = "metroLabel3";
+            this.metroLabel3.Size = new System.Drawing.Size(104, 19);
+            this.metroLabel3.TabIndex = 12;
+            this.metroLabel3.Text = "Shot delay (MS):";
+            // 
+            // delaySetButton
+            // 
+            this.delaySetButton.Location = new System.Drawing.Point(113, 40);
+            this.delaySetButton.Name = "delaySetButton";
+            this.delaySetButton.Size = new System.Drawing.Size(176, 23);
+            this.delaySetButton.TabIndex = 11;
+            this.delaySetButton.Text = "Set speed";
+            this.delaySetButton.Click += new System.EventHandler(this.delaySetButton_Click);
+            // 
+            // delayTextBox
+            // 
+            this.delayTextBox.Location = new System.Drawing.Point(113, 11);
+            this.delayTextBox.Name = "delayTextBox";
+            this.delayTextBox.Size = new System.Drawing.Size(176, 23);
+            this.delayTextBox.TabIndex = 10;
+            this.delayTextBox.Text = "100";
+            this.delayTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.delayTextBox_KeyPress);
+            // 
+            // shotDelayLabel
+            // 
+            this.shotDelayLabel.AutoSize = true;
+            this.shotDelayLabel.Location = new System.Drawing.Point(3, 11);
+            this.shotDelayLabel.Name = "shotDelayLabel";
+            this.shotDelayLabel.Size = new System.Drawing.Size(108, 19);
+            this.shotDelayLabel.TabIndex = 9;
+            this.shotDelayLabel.Text = "Shot speed (MS):";
+            // 
+            // triggerbotKeybindButton
+            // 
+            this.triggerbotKeybindButton.Location = new System.Drawing.Point(3, 127);
+            this.triggerbotKeybindButton.Name = "triggerbotKeybindButton";
+            this.triggerbotKeybindButton.Size = new System.Drawing.Size(286, 23);
+            this.triggerbotKeybindButton.TabIndex = 7;
+            this.triggerbotKeybindButton.Text = "Keybind: None";
+            this.triggerbotKeybindButton.Click += new System.EventHandler(this.triggerbotKeybindButton_Click);
             // 
             // metroTabPage3
             // 
@@ -403,29 +423,23 @@
             this.expirationLabel.TabIndex = 1;
             this.expirationLabel.Text = "license expiration";
             // 
-            // flankBindButton
+            // DiscordLinkAlert
             // 
-            this.flankBindButton.Location = new System.Drawing.Point(3, 183);
-            this.flankBindButton.Name = "flankBindButton";
-            this.flankBindButton.Size = new System.Drawing.Size(286, 23);
-            this.flankBindButton.TabIndex = 15;
-            this.flankBindButton.Text = "Keybind: None";
-            this.flankBindButton.Click += new System.EventHandler(this.flankBindButton_Click);
-            // 
-            // metroLabel1
-            // 
-            this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(3, 161);
-            this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(70, 19);
-            this.metroLabel1.TabIndex = 16;
-            this.metroLabel1.Text = "Flank shot:";
+            this.DiscordLinkAlert.AutoSize = true;
+            this.DiscordLinkAlert.ForeColor = System.Drawing.Color.Red;
+            this.DiscordLinkAlert.Location = new System.Drawing.Point(3, 163);
+            this.DiscordLinkAlert.Name = "DiscordLinkAlert";
+            this.DiscordLinkAlert.Size = new System.Drawing.Size(282, 76);
+            this.DiscordLinkAlert.TabIndex = 11;
+            this.DiscordLinkAlert.Text = "You haven\'t linked your discord account yet!\r\n\r\nMake sure to dm the discord bot $" +
+    "linkkey [key]\r\nwith [key] being the key you received";
+            this.DiscordLinkAlert.Visible = false;
             // 
             // ValMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(347, 380);
+            this.ClientSize = new System.Drawing.Size(347, 382);
             this.Controls.Add(this.expirationLabel);
             this.Controls.Add(this.metroTabControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -443,10 +457,10 @@
             this.metroTabControl1.ResumeLayout(false);
             this.metroTabPage1.ResumeLayout(false);
             this.metroTabPage1.PerformLayout();
-            this.metroTabPage2.ResumeLayout(false);
-            this.metroTabPage2.PerformLayout();
             this.metroTabPage4.ResumeLayout(false);
             this.metroTabPage4.PerformLayout();
+            this.metroTabPage2.ResumeLayout(false);
+            this.metroTabPage2.PerformLayout();
             this.metroTabPage3.ResumeLayout(false);
             this.metroTabPage3.PerformLayout();
             this.ResumeLayout(false);
@@ -491,5 +505,6 @@
         private MetroFramework.Controls.MetroButton chooseOutlineColor;
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroButton flankBindButton;
+        private MetroFramework.Controls.MetroLabel DiscordLinkAlert;
     }
 }

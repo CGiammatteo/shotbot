@@ -23,6 +23,8 @@ namespace Shotbot
 
         private void ValMain_Load(object sender, EventArgs e)
         {
+            
+
             this.Text = RandomString(random.Next(10, 20));
             using (StreamReader reader = File.OpenText(@"C:\Program Files\Shotbot\config.json"))
             {
@@ -34,7 +36,7 @@ namespace Shotbot
                     Settings.xPixels = Convert.ToInt32(o1["XPixels"]);
                     metroTrackBar1.Value = Settings.xPixels;
                     xPixelsLabel.Text = $"Pixels: {Settings.xPixels}x{Settings.xPixels}";
-
+                    
                     Settings.yPixels = Convert.ToInt32(o1["YPixels"]);
                     Settings.audio = Convert.ToBoolean(o1["Audio"]);
                     audioCheckBox.Checked = Settings.audio;
@@ -115,6 +117,16 @@ namespace Shotbot
             expirationLabel.Text = $"License expiration: {Settings.expiration.ToLocalTime().Date}";
 
             //load config here (config in shotbot folder, json format)
+
+            var IsLinked = Whitelisting.Auth.IsLinked(Whitelisting.Auth.GrabKey());
+            if (IsLinked)
+            {
+                DiscordLinkAlert.Visible = false;  
+            }
+            else
+            {
+                DiscordLinkAlert.Visible = true;
+            }
         }
 
         public static string RandomString(int length)
